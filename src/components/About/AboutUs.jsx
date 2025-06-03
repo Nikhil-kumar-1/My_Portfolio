@@ -193,7 +193,7 @@ const About = () => {
                   <h3 className="text-2xl font-bold">Who Am I?</h3>
                 </div>
                 <p className="text-gray-300 mb-4 leading-relaxed">
-                  I'm Nikhil, a dedicated Full Stack Developer with 2+ years of experience building scalable web applications. 
+                  I'm Nikhil, a dedicated Full Stack Developer with 1 years of experience building scalable web applications. 
                   I specialize in the MERN stack and have a strong foundation in computer science principles.
                 </p>
                 <p className="text-gray-300 mb-6 leading-relaxed">
@@ -347,6 +347,22 @@ const About = () => {
                       </p>
                     </div>
                   </div>
+
+                   <div className="flex gap-4">
+                    <div className="text-blue-400 text-xl mt-1">
+                      <IoIosRocket />
+                    </div>
+                    <div>
+                      <h4 className="font-bold">Full Stack Developer @Adonomics Technologies</h4>
+                      <p className="text-gray-400 text-sm mb-2">Feb 2025 - Present</p>
+                      <p className="text-gray-300 text-sm">
+                        Developed and maintained 10+ web applications using MERN stack.
+                        Improved application performance by 30% through code optimization and refactoring.
+                      </p>
+                    </div>
+                  </div>
+
+                  
                   
                   <div className="flex gap-4">
                     <div className="text-blue-400 text-xl mt-1">
