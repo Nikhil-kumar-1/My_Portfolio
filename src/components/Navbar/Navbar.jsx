@@ -47,10 +47,10 @@ const Navbar = () => {
   ];
 
   const socialIcons = [
-    { icon: <FiGithub size={20} />, href: '#', color: 'hover:text-gray-400' },
-    { icon: <FiLinkedin size={20} />, href: '#', color: 'hover:text-blue-500' },
-    { icon: <FiTwitter size={20} />, href: '#', color: 'hover:text-sky-400' },
-    { icon: <FiMail size={20} />, href: '#contact', color: 'hover:text-red-400' },
+    { icon: <FiGithub size={20} />, href: 'https://github.com/Nikhil-kumar-1', color: 'hover:text-gray-400' },
+    { icon: <FiLinkedin size={20} />, href: 'https://www.linkedin.com/in/nikhil-kumar-9b15b31b6/', color: 'hover:text-blue-500' },
+    { icon: <FiTwitter size={20} />, href: 'https://github.com/Nikhil-kumar-1', color: 'hover:text-sky-400' },
+    
   ];
 
   const handleHashLinkClick = (path) => {
