@@ -1,14 +1,62 @@
+import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { FaPaperPlane, FaMapMarkerAlt, FaPhone, FaEnvelope, FaLinkedin, FaGithub } from 'react-icons/fa';
+import emailjs from 'emailjs-com';
+import {
+  FaPaperPlane,
+  FaMapMarkerAlt,
+  FaPhone,
+  FaEnvelope,
+  FaLinkedin,
+  FaGithub,
+} from 'react-icons/fa';
 
 const ContactUs = () => {
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    subject: '',
+    message: '',
+  });
+
+  const [success, setSuccess] = useState(false);
+
+  const handleChange = (e) => {
+    setFormData((prev) => ({
+      ...prev,
+      [e.target.name]: e.target.value,
+    }));
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    emailjs
+      .send(
+        'service_050rtae',        // ✅ Replace with your EmailJS Service ID
+        'template_mjcvhbd',       // ✅ Replace with your EmailJS Template ID
+        formData,
+        'ONzodbdkWqSZ1C7XY'         // ✅ Replace with your EmailJS Public Key
+      )
+      .then(
+        (response) => {
+          console.log('SUCCESS!', response.status, response.text);
+          setSuccess(true);
+          setFormData({ name: '', email: '', subject: '', message: '' });
+        },
+        (err) => {
+          console.log('FAILED...', err);
+          setSuccess(false);
+        }
+      );
+  };
+
   const fadeIn = {
     hidden: { opacity: 0, y: 50 },
     visible: {
       opacity: 1,
       y: 0,
-      transition: { duration: 0.8 }
-    }
+      transition: { duration: 0.8 },
+    },
   };
 
   const staggerContainer = {
@@ -16,30 +64,30 @@ const ContactUs = () => {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.2
-      }
-    }
+        staggerChildren: 0.2,
+      },
+    },
   };
 
   const contactMethods = [
     {
       icon: <FaMapMarkerAlt className="text-2xl text-blue-400" />,
-      title: "Location",
-      info: "New, Delhi, India",
-      link: "https://maps.google.com"
+      title: 'Location',
+      info: 'New Delhi, India',
+      link: 'https://maps.google.com',
     },
     {
       icon: <FaPhone className="text-2xl text-green-400" />,
-      title: "Phone",
-      info: "+91 1234567890",
-      link: "tel:+911234567890"
+      title: 'Phone',
+      info: '+91 1234567890',
+      link: 'tel:+911234567890',
     },
     {
       icon: <FaEnvelope className="text-2xl text-red-400" />,
-      title: "Email",
-      info: "nik629920@gmail.com",
-      link: "mailto:nikhil@example.com"
-    }
+      title: 'Email',
+      info: 'nik629920@gmail.com',
+      link: 'mailto:nik629920@gmail.com',
+    },
   ];
 
   return (
@@ -62,6 +110,7 @@ const ContactUs = () => {
         </motion.div>
 
         <div className="flex flex-col lg:flex-row gap-12">
+          {/* Left Contact Info */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -71,7 +120,7 @@ const ContactUs = () => {
           >
             <div className="bg-gradient-to-br from-gray-800 to-gray-900 p-8 rounded-xl border border-gray-700 shadow-lg h-full">
               <h3 className="text-2xl font-bold mb-6">Contact Information</h3>
-              
+
               <motion.div
                 variants={staggerContainer}
                 initial="hidden"
@@ -89,9 +138,7 @@ const ContactUs = () => {
                     whileHover={{ x: 5 }}
                     className="flex items-center gap-4 p-4 hover:bg-gray-700/50 rounded-lg transition-colors duration-300"
                   >
-                    <div className="p-3 bg-gray-700 rounded-full">
-                      {method.icon}
-                    </div>
+                    <div className="p-3 bg-gray-700 rounded-full">{method.icon}</div>
                     <div>
                       <h4 className="font-medium text-gray-300">{method.title}</h4>
                       <p className="text-gray-400">{method.info}</p>
@@ -126,6 +173,7 @@ const ContactUs = () => {
             </div>
           </motion.div>
 
+          {/* Right Contact Form */}
           <motion.div
             initial={{ opacity: 0, x: 50 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -135,61 +183,69 @@ const ContactUs = () => {
           >
             <div className="bg-gradient-to-br from-gray-800 to-gray-900 p-8 rounded-xl border border-gray-700 shadow-lg">
               <h3 className="text-2xl font-bold mb-6">Send Me a Message</h3>
-              <form className="space-y-6">
-                <motion.div
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  transition={{ delay: 0.2 }}
-                  className="grid grid-cols-1 md:grid-cols-2 gap-6"
-                >
+              <form onSubmit={handleSubmit} className="space-y-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
-                    <label htmlFor="name" className="block text-gray-300 mb-2">Name</label>
+                    <label htmlFor="name" className="block text-gray-300 mb-2">
+                      Name
+                    </label>
                     <input
                       type="text"
                       id="name"
+                      name="name"
+                      value={formData.name}
+                      onChange={handleChange}
+                      required
                       className="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-white"
                       placeholder="Your Name"
                     />
                   </div>
                   <div>
-                    <label htmlFor="email" className="block text-gray-300 mb-2">Email</label>
+                    <label htmlFor="email" className="block text-gray-300 mb-2">
+                      Email
+                    </label>
                     <input
                       type="email"
                       id="email"
+                      name="email"
+                      value={formData.email}
+                      onChange={handleChange}
+                      required
                       className="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-white"
                       placeholder="Your Email"
                     />
                   </div>
-                </motion.div>
-                
-                <motion.div
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  transition={{ delay: 0.4 }}
-                >
-                  <label htmlFor="subject" className="block text-gray-300 mb-2">Subject</label>
+                </div>
+                <div>
+                  <label htmlFor="subject" className="block text-gray-300 mb-2">
+                    Subject
+                  </label>
                   <input
                     type="text"
                     id="subject"
+                    name="subject"
+                    value={formData.subject}
+                    onChange={handleChange}
+                    required
                     className="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-white"
                     placeholder="Subject"
                   />
-                </motion.div>
-                
-                <motion.div
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  transition={{ delay: 0.6 }}
-                >
-                  <label htmlFor="message" className="block text-gray-300 mb-2">Message</label>
+                </div>
+                <div>
+                  <label htmlFor="message" className="block text-gray-300 mb-2">
+                    Message
+                  </label>
                   <textarea
                     id="message"
+                    name="message"
+                    value={formData.message}
+                    onChange={handleChange}
+                    required
                     rows="5"
                     className="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-white"
                     placeholder="Your Message"
                   ></textarea>
-                </motion.div>
-                
+                </div>
                 <motion.button
                   type="submit"
                   whileHover={{ scale: 1.03 }}
@@ -199,6 +255,9 @@ const ContactUs = () => {
                   <FaPaperPlane />
                   Send Message
                 </motion.button>
+                {success && (
+                  <p className="text-green-400 mt-4">Message sent successfully!</p>
+                )}
               </form>
             </div>
           </motion.div>
