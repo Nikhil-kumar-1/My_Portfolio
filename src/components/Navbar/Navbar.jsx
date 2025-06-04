@@ -74,8 +74,8 @@ const Navbar = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
         >
-          <Link to="/" className="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-blue-600 group-hover:bg-gradient-to-l transition-all duration-500">
-            {'<Nikhil Kumar />'}
+          <Link to="/" className="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-blue-600 group-hover:bg-gradient-to-l transition-all duration-500">
+            {'<NikhilStacks />'}
           </Link>
           <span className="text-xs text-gray-400">Full Stack Developer</span>
         </motion.div>

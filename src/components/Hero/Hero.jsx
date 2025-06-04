@@ -5,19 +5,20 @@ import { Link } from 'react-router-dom';
 
 const HeroSection = () => {
   const [isImageLoaded, setIsImageLoaded] = useState(false);
-
-  // Replace with your actual image path
   const profileImage = "Profile.png"; 
 
   useEffect(() => {
-    // Preload image for smoother transition
     const img = new Image();
     img.src = profileImage;
     img.onload = () => setIsImageLoaded(true);
   }, []);
 
   return (
-    <section id="home" className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 overflow-hidden">
+    <section 
+      id="home" 
+      className="relative flex items-center justify-center bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 overflow-hidden"
+      style={{ minHeight: 'calc(100vh - navbarHeight)' }} // Adjust navbarHeight to your actual navbar height
+    >
       {/* Animated background elements */}
       <div className="absolute inset-0 overflow-hidden">
         {[...Array(20)].map((_, i) => (
@@ -45,7 +46,7 @@ const HeroSection = () => {
         ))}
       </div>
 
-      <div className="container mx-auto px-6 z-10">
+      <div className="container mx-auto px-6 z-10 py-20"> {/* Added py-20 for top padding */}
         <div className="flex flex-col lg:flex-row items-center justify-between gap-12">
           {/* Text content */}
           <div className="lg:w-1/2 text-center lg:text-left">
@@ -99,15 +100,15 @@ const HeroSection = () => {
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.9, duration: 0.8 }}
               >
-                <Link to="/contact"
-                  
+                <Link 
+                  to="/contact"
                   className="px-8 py-3 bg-gradient-to-r from-blue-500 to-cyan-500 text-white font-medium rounded-full hover:shadow-lg hover:shadow-blue-500/30 transition-all duration-300 hover:-translate-y-1"
                 >
                   Contact Me
                 </Link>
                 
-                <Link to="/projects"
-                  href="#projects"
+                <Link 
+                  to="/projects"
                   className="px-8 py-3 border border-blue-400 text-blue-400 font-medium rounded-full hover:bg-blue-500/10 transition-all duration-300 hover:-translate-y-1"
                 >
                   View Work
@@ -118,13 +119,12 @@ const HeroSection = () => {
 
           {/* Hero image/avatar area */}
           <motion.div 
-            className="lg:w-1/2 flex justify-center"
+            className="lg:w-1/2 flex justify-center mt-10 lg:mt-0" // Added margin top for mobile
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
             <div className="relative w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96">
-              {/* Animated circular profile image */}
               <motion.div 
                 className="absolute inset-0 rounded-full bg-gradient-to-br from-blue-500 to-cyan-400 shadow-2xl shadow-cyan-500/30 flex items-center justify-center overflow-hidden"
                 animate={{
