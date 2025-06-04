@@ -188,7 +188,7 @@ const Projects = () => {
           viewport={{ once: true }}
           className="mt-16 text-center"
         >
-          <a
+          <Link to="/projects"
             href="#"
             className="inline-flex items-center px-6 py-3 border border-cyan-400 text-cyan-400 font-medium rounded-full hover:bg-cyan-400/10 hover:shadow-lg hover:shadow-cyan-500/20 transition-all duration-300"
           >
@@ -205,7 +205,7 @@ const Projects = () => {
                 clipRule="evenodd"
               />
             </svg>
-          </a>
+          </Link>
         </motion.div>
       </div>
     </section>

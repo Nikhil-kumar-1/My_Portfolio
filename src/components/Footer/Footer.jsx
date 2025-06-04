@@ -7,6 +7,7 @@ import {
   FiPhone,
   FiMapPin
 } from 'react-icons/fi';
+import { Link } from 'react-router-dom';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -15,21 +16,21 @@ const Footer = () => {
     {
       title: "Quick Links",
       items: [
-        { name: "Home", href: "#home" },
-        { name: "About", href: "#about" },
-        { name: "Skills", href: "#skills" },
-        { name: "Projects", href: "#projects" },
-        { name: "Contact", href: "#contact" }
+        { name: "Home", path: "/" },
+        { name: "About", path: "/about" },
+        { name: "Skills", path: "/skills" },
+        { name: "Projects", path: "/projects" },
+        { name: "Contact", path: "/contact" }
       ]
     },
     {
       title: "Services",
       items: [
-        { name: "Web Development", href: "#services" },
-        { name: "App Development", href: "#services" },
-        { name: "UI/UX Design", href: "#services" },
-        { name: "Backend Solutions", href: "#services" },
-        { name: "Consulting", href: "#services" }
+        { name: "Web Development", path: "/services" },
+        { name: "App Development", path: "/services" },
+        { name: "UI/UX Design", path: "/services" },
+        { name: "Backend Solutions", path: "/services" },
+        { name: "Consulting", path: "/services" }
       ]
     },
     {
@@ -38,19 +39,16 @@ const Footer = () => {
         { 
           icon: <FiMail className="mr-2" />, 
           text: "nik629920@gmail.com",
-          href: "mailto:nik629920@gmail.com",
-          isLink: true
+          href: "mailto:nik629920@gmail.com"
         },
         { 
           icon: <FiPhone className="mr-2" />, 
           text: "+91 **********",
-          href: "tel:+91**********",
-          isLink: true
+          href: "tel:+91**********"
         },
         { 
           icon: <FiMapPin className="mr-2" />, 
-          text: "New Delhi, India",
-          isLink: false
+          text: "New Delhi, India"
         }
       ]
     }
@@ -85,17 +83,16 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
           {/* Brand Info */}
           <div className="lg:col-span-1">
-            <motion.a 
-              href="#home"
+            <motion.div 
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
               className="flex flex-col group mb-4"
             >
-              <span className="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 to-purple-500">
+              <Link to="/" className="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 to-purple-500">
                 {'<NikhilKumar />'}
-              </span>
+              </Link>
               <span className="text-sm text-gray-400">Full Stack Developer</span>
-            </motion.a>
+            </motion.div>
             <p className="text-gray-400 mb-6">
               Creating exceptional digital experiences with modern web technologies.
             </p>
@@ -132,13 +129,23 @@ const Footer = () => {
               <ul className="space-y-3">
                 {section.items.map((item, itemIndex) => (
                   <li key={itemIndex}>
-                    <a 
-                      href={item.href || '#'} 
-                      className="flex items-center text-gray-400 hover:text-cyan-400 transition-colors"
-                    >
-                      {item.icon || null}
-                      {item.name || item.text}
-                    </a>
+                    {item.path ? (
+                      <Link 
+                        to={item.path}
+                        className="flex items-center text-gray-400 hover:text-cyan-400 transition-colors"
+                      >
+                        {item.icon || null}
+                        {item.name || item.text}
+                      </Link>
+                    ) : (
+                      <a 
+                        href={item.href || '#'} 
+                        className="flex items-center text-gray-400 hover:text-cyan-400 transition-colors"
+                      >
+                        {item.icon || null}
+                        {item.text}
+                      </a>
+                    )}
                   </li>
                 ))}
               </ul>
@@ -152,12 +159,12 @@ const Footer = () => {
             © {currentYear} Nikhil Kumar. All Rights Reserved.
           </p>
           <div className="flex space-x-6">
-            <a href="#" className="text-gray-500 hover:text-gray-300 text-sm transition-colors">
+            <Link to="/privacy-policy" className="text-gray-500 hover:text-gray-300 text-sm transition-colors">
               Privacy Policy
-            </a>
-            <a href="#" className="text-gray-500 hover:text-gray-300 text-sm transition-colors">
+            </Link>
+            <Link to="/terms" className="text-gray-500 hover:text-gray-300 text-sm transition-colors">
               Terms of Service
-            </a>
+            </Link>
           </div>
         </div>
       </div>

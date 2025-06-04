@@ -1,7 +1,8 @@
 import { motion } from 'framer-motion';
 import { FaCode, FaServer, FaMobileAlt, FaPalette, FaDatabase, FaRocket } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
 
-const Services = () => {
+const Service = () => {
   const services = [
     {
       icon: <FaCode className="text-blue-400" size={28} />,
@@ -119,7 +120,7 @@ const Services = () => {
           <p className="text-gray-400 mb-6 text-lg">
             Have a project in mind? Let's discuss how I can help bring it to life!
           </p>
-          <a
+          <Link to="/contact"
             href="#contact"
             className="inline-flex items-center px-8 py-3 bg-gradient-to-r from-blue-500 to-cyan-500 text-white font-medium rounded-full hover:shadow-lg hover:shadow-blue-500/30 transition-all duration-300 hover:-translate-y-1"
           >
@@ -127,11 +128,11 @@ const Services = () => {
             <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 ml-2" viewBox="0 0 20 20" fill="currentColor">
               <path fillRule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clipRule="evenodd" />
             </svg>
-          </a>
+          </Link>
         </motion.div>
       </div>
     </section>
   );
 };
 
-export default Services;
+export default Service;

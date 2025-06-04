@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import { TypeAnimation } from 'react-type-animation';
 import { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 
 const HeroSection = () => {
   const [isImageLoaded, setIsImageLoaded] = useState(false);
@@ -98,18 +99,19 @@ const HeroSection = () => {
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.9, duration: 0.8 }}
               >
-                <a
-                  href="#contact"
+                <Link to="/contact"
+                  
                   className="px-8 py-3 bg-gradient-to-r from-blue-500 to-cyan-500 text-white font-medium rounded-full hover:shadow-lg hover:shadow-blue-500/30 transition-all duration-300 hover:-translate-y-1"
                 >
                   Contact Me
-                </a>
-                <a
+                </Link>
+                
+                <Link to="/projects"
                   href="#projects"
                   className="px-8 py-3 border border-blue-400 text-blue-400 font-medium rounded-full hover:bg-blue-500/10 transition-all duration-300 hover:-translate-y-1"
                 >
                   View Work
-                </a>
+                </Link>
               </motion.div>
             </motion.div>
           </div>

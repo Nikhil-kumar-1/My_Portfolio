@@ -158,7 +158,7 @@ const About = () => {
 
       {/* About Section */}
       <section id="about" className="py-20 bg-gray-900 text-white">
-        <div className="container mx-auto px-4">
+        <div className="container mx-auto px-4 overflow-hidden">
           <motion.div
             initial="hidden"
             whileInView="visible"
@@ -193,21 +193,21 @@ const About = () => {
                   <h3 className="text-2xl font-bold">Who Am I?</h3>
                 </div>
                 <p className="text-gray-300 mb-4 leading-relaxed">
-                  I'm Nikhil, a dedicated Full Stack Developer with 1 years of experience building scalable web applications. 
+                  I'm Nikhil, a dedicated Full Stack Developer with 1 year of experience building web applications. 
                   I specialize in the MERN stack and have a strong foundation in computer science principles.
                 </p>
                 <p className="text-gray-300 mb-6 leading-relaxed">
-                  When I'm not coding, you can find me contributing to open-source projects, learning new technologies, 
-                  or mentoring junior developers in my community.
+                  I enjoy creating practical solutions to real-world problems through my projects and continuously 
+                  expanding my technical knowledge through hands-on experience.
                 </p>
                 <div className="flex flex-wrap gap-4">
                   <div className="flex items-center gap-2 text-blue-400">
                     <IoIosRocket />
-                    <span>15+ Projects Completed</span>
+                    <span>10+ Projects Completed</span>
                   </div>
                   <div className="flex items-center gap-2 text-blue-400">
                     <FaAward />
-                    <span>Participated in Hackathon </span>
+                    <span>Built Practical Applications</span>
                   </div>
                 </div>
               </motion.div>
@@ -330,7 +330,7 @@ const About = () => {
                   <div className="p-3 bg-blue-500/20 rounded-full">
                     <FaCode className="text-blue-400 text-2xl" />
                   </div>
-                  <h3 className="text-2xl font-bold">Career Highlights</h3>
+                  <h3 className="text-2xl font-bold">Professional Journey</h3>
                 </div>
                 
                 <div className="space-y-6">
@@ -339,16 +339,16 @@ const About = () => {
                       <IoIosRocket />
                     </div>
                     <div>
-                      <h4 className="font-bold">Full Stack Developer @NIELIT</h4>
-                      <p className="text-gray-400 text-sm mb-2">June 2024 - December</p>
+                      <h4 className="font-bold">Internship @NIELIT (Government Organization)</h4>
+                      <p className="text-gray-400 text-sm mb-2">June 2024 - December 2024</p>
                       <p className="text-gray-300 text-sm">
-                        Led development of 3 major web applications, improving client engagement by 40%.
-                        Implemented CI/CD pipelines reducing deployment time by 65%.
+                        Gained hands-on experience with web development technologies.
+                        Worked on real-world projects under government supervision.
                       </p>
                     </div>
                   </div>
 
-                   <div className="flex gap-4">
+                  <div className="flex gap-4">
                     <div className="text-blue-400 text-xl mt-1">
                       <IoIosRocket />
                     </div>
@@ -356,23 +356,8 @@ const About = () => {
                       <h4 className="font-bold">Full Stack Developer @Adonomics Technologies</h4>
                       <p className="text-gray-400 text-sm mb-2">Feb 2025 - Present</p>
                       <p className="text-gray-300 text-sm">
-                        Developed and maintained 10+ web applications using MERN stack.
-                        Improved application performance by 30% through code optimization and refactoring.
-                      </p>
-                    </div>
-                  </div>
-
-                  
-                  
-                  <div className="flex gap-4">
-                    <div className="text-blue-400 text-xl mt-1">
-                      <FaAward />
-                    </div>
-                    <div>
-                      <h4 className="font-bold">Open Source Contributor</h4>
-                      <p className="text-gray-400 text-sm mb-2">2022 - Present</p>
-                      <p className="text-gray-300 text-sm">
-                        Contributed to 5+ open source projects.
+                        Developing and maintaining web applications using MERN stack.
+                        Implementing responsive designs and optimizing application performance.
                       </p>
                     </div>
                   </div>
@@ -382,11 +367,25 @@ const About = () => {
                       <FaCode />
                     </div>
                     <div>
-                      <h4 className="font-bold">Freelance Projects</h4>
-                      <p className="text-gray-400 text-sm mb-2">2022 - 2023</p>
+                      <h4 className="font-bold">Freelance Project</h4>
+                      <p className="text-gray-400 text-sm mb-2">2023</p>
                       <p className="text-gray-300 text-sm">
-                        Delivered 12+ websites and web apps for clients worldwide.
-                        Specialized in e-commerce solutions and SaaS applications.
+                        Developed a matrimonial website for a client with user profiles,
+                        search functionality, and matching algorithms.
+                      </p>
+                    </div>
+                  </div>
+                  
+                  <div className="flex gap-4">
+                    <div className="text-blue-400 text-xl mt-1">
+                      <FaAward />
+                    </div>
+                    <div>
+                      <h4 className="font-bold">Personal Projects</h4>
+                      <p className="text-gray-400 text-sm mb-2">2022 - Present</p>
+                      <p className="text-gray-300 text-sm">
+                        Built multiple practical applications including e-commerce platforms,
+                        task management systems, and portfolio websites to showcase skills.
                       </p>
                     </div>
                   </div>
