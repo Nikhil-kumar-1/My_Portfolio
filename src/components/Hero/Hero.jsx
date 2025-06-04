@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 
 const HeroSection = () => {
   const [isImageLoaded, setIsImageLoaded] = useState(false);
-  const profileImage = "Profile.png"; 
+  const profileImage = "profile4.jpeg"; 
 
   useEffect(() => {
     const img = new Image();
