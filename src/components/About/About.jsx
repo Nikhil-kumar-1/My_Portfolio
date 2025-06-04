@@ -83,7 +83,7 @@ const About = () => {
               <div className="w-64 h-64 md:w-80 md:h-80 rounded-full bg-gradient-to-br from-blue-500 to-cyan-400 p-4 shadow-lg">
                 <div className="w-full h-full rounded-full bg-gray-800 overflow-hidden border-4 border-gray-800 relative">
                   <img 
-                    src="Profile1.png" // Replace with your image path
+                    src="profile.jpeg" // Replace with your image path
                     alt="Nikhil"
                     className="w-full h-full object-cover"
                     loading="lazy"
